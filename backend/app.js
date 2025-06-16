@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import authRoutes from './routes/authRoutes.js';
 
 //Ahora vamos con la configuracion inicial
 
@@ -27,6 +28,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 .then(() => {
     console.log('Conectado a MongoDB correctamente');
+    app.use('/api/auth', authRoutes);
     app.listen(PORT, () => {
         console.log(`Servidor corriendo en http://localhost:${PORT}`);
     });
