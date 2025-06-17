@@ -29,6 +29,7 @@ router.post('/register', async (req, res) => {
     res.status(201).json({ message: 'Usuario registrado correctamente' });
 
   } catch (err) {
+    console.log(err); //Para poder ver el error 
     res.status(500).json({ message: 'Error en el servidor' });
   }
 });
