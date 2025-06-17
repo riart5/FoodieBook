@@ -21,23 +21,23 @@ function Login() {
         alert(data.message);
       }
     } catch (err) {
-      alert('Error de conexión');
+      alert('Error al conectar con el servidor');
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-orange-400 via-pink-500 to-pink-700">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-400 via-pink-500 to-pink-600 px-4">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 120, damping: 10 }}
-        className="bg-white shadow-xl rounded-2xl w-full max-w-md p-8"
+        transition={{ type: 'spring', stiffness: 100, damping: 12 }}
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8"
       >
         <h2 className="text-3xl font-bold text-center mb-6 text-pink-700">Inicia sesión</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="email"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600"
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
             placeholder="Correo electrónico"
             value={email}
             onChange={e => setEmail(e.target.value)}
@@ -45,7 +45,7 @@ function Login() {
           />
           <input
             type="password"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600"
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
             placeholder="Contraseña"
             value={password}
             onChange={e => setPassword(e.target.value)}

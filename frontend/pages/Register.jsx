@@ -2,7 +2,18 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 function Register() {
-  const [form, setForm] = useState({ username: '', email: '', password: '' });
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -10,52 +21,55 @@ function Register() {
       const res = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(formData),
       });
 
       const data = await res.json();
       if (res.ok) {
         alert('Registro exitoso 🎉');
       } else {
-        alert(data.message);
+        alert(data.message || 'Error en el registro');
       }
     } catch (err) {
-      alert('Error de conexión');
+      alert('No se pudo conectar con el servidor');
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-orange-400 via-pink-500 to-pink-700">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-400 via-pink-500 to-pink-600 px-4">
       <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ type: 'spring', duration: 0.8 }}
-        className="bg-white shadow-xl rounded-2xl w-full max-w-md p-8"
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8"
       >
-        <h2 className="text-3xl font-bold text-center mb-6 text-pink-700">Crear cuenta</h2>
+        <h2 className="text-3xl font-bold text-center mb-6 text-pink-700">Crea tu cuenta</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600"
-            placeholder="Nombre de usuario"
-            value={form.username}
-            onChange={e => setForm({ ...form, username: e.target.value })}
+            name="nombre"
+            placeholder="Nombre completo"
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={formData.nombre}
+            onChange={handleChange}
             required
           />
           <input
             type="email"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600"
+            name="email"
             placeholder="Correo electrónico"
-            value={form.email}
-            onChange={e => setForm({ ...form, email: e.target.value })}
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={formData.email}
+            onChange={handleChange}
             required
           />
           <input
             type="password"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600"
+            name="password"
             placeholder="Contraseña"
-            value={form.password}
-            onChange={e => setForm({ ...form, password: e.target.value })}
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={formData.password}
+            onChange={handleChange}
             required
           />
           <button
