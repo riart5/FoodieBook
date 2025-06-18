@@ -11,13 +11,14 @@ function Home() {
         Una Pokédex visual donde puedes explorar todos los Pokémon por generación
         y descubrir sus paletas de colores únicas.
       </p>
+      <div>
+        <button className='bt1'>
+            <a href="Generaciones">Ir a las generaciones</a>
+        </button>
+      </div>
 
-      <div className="gen-grid">
-        {generaciones.map((gen) => (
-          <Link key={gen} to={`/generacion/${gen}`} className="gen-card">
-            Generación {gen}
-          </Link>
-        ))}
+      <div className="explicacion">
+        <h2>This web is made by @riart5, check his GitHub!</h2>
       </div>
     </div>
   );

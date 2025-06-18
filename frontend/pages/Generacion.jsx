@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import './Generacion.css';
 
 function Generacion() {
   const { id } = useParams();
@@ -12,11 +13,11 @@ function Generacion() {
   }, [id]);
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Pokémon de la Generación {id}</h2>
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '1rem' }}>
+    <div className="generacion-page">
+      <h2 className="generacion-title">Pokémon de la Generación {id}</h2>
+      <div className="pokemon-list">
         {pokemons.map(poke => (
-          <div key={poke.id} style={{ border: '1px solid gray', padding: '1rem' }}>
+          <div key={poke.id} className="pokemon-card">
             <img src={poke.imagen} alt={poke.nombre} />
             <h3>{poke.nombre}</h3>
             <p>Generación: {poke.generacion}</p>

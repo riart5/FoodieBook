@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .home-container {
+  min-height: 100vh;
+  background: radial-gradient(circle, #fceabb, #f8b500);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: radial-gradient(circle, #fceabb, #f8b500);
+  justify-content: center; /* Esto centra verticalmente */
   text-align: center;
   padding: 2rem;
+  gap: 2rem;
 }
 
 .pokemon-title {
@@ -16,13 +17,12 @@
   font-size: 2.5rem;
   color: #ffcb05;
   text-shadow: 2px 2px 0 #2a75bb, 4px 4px 0 #000;
-  margin-bottom: 2rem;
 }
 
 .description {
   max-width: 600px;
   font-size: 1.2rem;
-  font-family: sans-serif;
+  font-family: 'Press Start 2P', cursive;
   color: #222;
   background: rgba(255, 255, 255, 0.6);
   padding: 1rem 2rem;
@@ -30,26 +30,19 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.gen-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
-  justify-content: center;
+.bt1 {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffcb05;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.gen-card {
-  background: #2a75bb;
-  color: #fff;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s, background 0.2s;
-}
 
-.gen-card:hover {
-  transform: scale(1.05);
-  background: #1d4e89;
+.explicacion {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffcb05;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-

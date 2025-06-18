@@ -1,0 +1,39 @@
+.generacion-page {
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0f8ff, #d4edff);
+}
+
+.generacion-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #2a75bb;
+  margin-bottom: 2rem;
+}
+
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.pokemon-card {
+  border: 2px solid #2a75bb;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  background-color: white;
+  width: 200px;
+  transition: transform 0.2s ease;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+}
+
+.pokemon-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
