@@ -9,14 +9,12 @@ function PokemonDetalle() {
   const [colores, setColores] = useState([]);
   const imgRef = useRef();
 
-  // Obtener los datos del Pokémon desde la PokéAPI
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`)
       .then(res => res.json())
       .then(data => setDatos(data));
   }, [nombre]);
 
-  // Extraer colores dominantes de la imagen cuando cargue
   const extraerColores = () => {
     const colorThief = new ColorThief();
     if (imgRef.current.complete) {
@@ -32,7 +30,7 @@ function PokemonDetalle() {
 
   if (!datos) return <p className="pokemon-detalle">Cargando datos de {nombre}...</p>;
 
-  const sprite = datos.sprites.front_default;
+  const sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${datos.id}.png`;
 
   return (
     <div className="pokemon-detalle">

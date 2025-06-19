@@ -30,19 +30,19 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.bt1 {
+.home-button {
     font-family: 'Press Start 2P', cursive;
-    color: #ffcb05;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background: #2a75bb;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.home-button:hover {
+  background: #1d4e89;
 }
 
 
-.explicacion {
-    font-family: 'Press Start 2P', cursive;
-    color: #ffcb05;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
